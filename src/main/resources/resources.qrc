@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>../icons/base/app.svg</file>
+    <file>../icons/emoji/1F3C6.svg</file>
+    <file>../icons/emoji/1F61F.svg</file>
+    <file>../icons/emoji/1F600.svg</file>
+    <file>../icons/emoji/1F610.svg</file>
+    <file>../icons/emoji/1F642.svg</file>
+    <file>../icons/base/cancel.svg</file>
+    <file>../icons/base/checkmark.svg</file>
+  </qresource>
+  <qresource prefix="sound">
+    <file>../sound/error.wav</file>
+    <file>../sound/ok.wav</file>
+  </qresource>
+</RCC>
