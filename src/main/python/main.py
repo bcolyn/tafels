@@ -121,6 +121,8 @@ class TafelsMainWindow(QMainWindow, Ui_MainWindow):
         self.test_timer.setInterval(TEST_DURATION_MSEC)
         self.test_timer.setSingleShot(True)
         self.test_timer.start()
+        self.progressBar.setValue(0)
+        self.progressBar.setMaximum(len(self.cards_todo))
 
     @Slot()
     def start_practice(self):
@@ -133,12 +135,15 @@ class TafelsMainWindow(QMainWindow, Ui_MainWindow):
         shuffle(self.cards_todo)
         self.show_question_or_feedback()
         self.feedback.setText("")
+        self.progressBar.setValue(0)
+        self.progressBar.setMaximum(len(self.cards_todo))
 
     @Slot()
     def stop_all(self):
         print("stopping")
         self.state = GameState.SETUP
         self.enable_controls()
+        self.progressBar.setValue(0)
         if self.state == GameState.TESTING:
             self.test_timer.stop()
             del self.test_timer
@@ -185,6 +190,7 @@ class TafelsMainWindow(QMainWindow, Ui_MainWindow):
 
     def next_card(self):
         self.cards_todo.pop()
+        self.progressBar.setValue(1 + self.progressBar.maximum() - len(self.cards_todo))
         self.show_question_or_feedback()
 
     def wrong_answer(self):
